@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - 'main'
+      - 'ci/JakubSabat'
   pull_request: 
     branches:
-      -'main'
+      - 'main'
       - 'ci/JakubSabat'
 
 jobs:
