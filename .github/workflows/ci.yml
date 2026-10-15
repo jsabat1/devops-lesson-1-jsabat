@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request: 
+    branches:
+      -'main'
+      - 'ci/JakubSabat'
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - name: Run tests
+        run: bash tests/run.sh
+      - name: Check python version
+        uses: actions/setup-python@v5
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
